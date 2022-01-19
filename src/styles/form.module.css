@@ -9,8 +9,28 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .wordInput {
   padding: 0.5em;
+  width: 100%;
+}
+
+.submitButton {
+  width: 200px;
+  padding: 0.5em;
+  font-family: "Ubuntu Mono", monospace;
+  border: 1px solid #fffbfe;
+  background-color: #347fc4;
+  color: #fffbfe;
+
+  border-radius: 5px;
+}
+
+.submitButton:hover {
+  background-color: #fffbfe;
+  border: 1px solid #347fc4;
+  cursor: pointer;
+  color: #04151f;
 }
