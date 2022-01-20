@@ -18,3 +18,11 @@
   font-weight: 700;
   font-size: 50px;
 }
+
+.searchWord:hover {
+  cursor: pointer;
+}
+
+.subHeader {
+  color: #da4167;
+}
