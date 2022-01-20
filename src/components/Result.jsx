@@ -1,19 +1,29 @@
 import styles from "../styles/result.module.css";
 import DefinitionCard from "./DefinitionCard";
-const Result = ({ result }) => {
+const Result = ({ result, err }) => {
   console.log(result);
   const wordInfo = result[0];
+
   if (!Object.keys(result).length) return <></>;
+  if (err) {
+    return (
+      <div className={styles.result}>
+        <img className={styles.errorImage} src="warning.png" />
+        <h3 className={styles.errorMessage}>{err}</h3>
+        <p>Please try another word</p>
+      </div>
+    );
+  }
   return (
     <div className={styles.result}>
       <p>You searched for:</p>
       <h1>{wordInfo.word}</h1>
-      {wordInfo.meanings.map((meaning) => {
+      {wordInfo.meanings.map((meaning, indx1) => {
         return (
-          <div key={meaning.toString()}>
+          <div key={meaning.toString() + indx1}>
             <h3>{meaning.partOfSpeech}</h3>
-            {meaning.definitions.map((definition, indx) => {
-              return <DefinitionCard key={definition.toString() + indx} definition={definition} />;
+            {meaning.definitions.map((definition, indx2) => {
+              return <DefinitionCard key={definition.toString() + indx1 + indx2} definition={definition} />;
             })}
           </div>
         );
