@@ -5,6 +5,7 @@ const Result = ({ result, err }) => {
   const wordInfo = result[0];
   console.dir(wordInfo);
   if (!Object.keys(result).length) return <></>;
+
   if (err) {
     return (
       <div className={styles.result}>
@@ -14,13 +15,22 @@ const Result = ({ result, err }) => {
       </div>
     );
   }
+  const audio = new Audio(wordInfo.phonetics[0].audio);
+
   return (
     <div className={styles.result}>
       <p>You searched for:</p>
-      <h1 className={styles.searchWord}>{wordInfo.word}</h1>
-      <h2> Origin </h2>
+      <h1
+        onClick={() => {
+          audio.play();
+        }}
+        className={styles.searchWord}
+      >
+        {wordInfo.word}
+      </h1>
+      <h2 className={styles.subHeader}> Origin </h2>
       <p>{wordInfo.origin || "Origin Unknown!"}</p>
-      <h2>Definitions</h2>
+      <h2 className={styles.subHeader}>Definitions</h2>
 
       {wordInfo.meanings.map((meaning, indx1) => {
         return (
