@@ -1,7 +1,7 @@
 import styles from "../styles/form.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const Form = ({ setResult }) => {
+const Form = ({ setResult, setErr }) => {
   const [word, setWord] = useState("");
   return (
     <div className={styles.form}>
@@ -13,9 +13,10 @@ const Form = ({ setResult }) => {
             .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
             .then(({ data }) => {
               setResult(data);
+              setErr("");
             })
             .catch((err) => {
-              console.log("Error");
+              setErr(err.response.data.title);
             });
         }}
         className={styles.inputForm}
