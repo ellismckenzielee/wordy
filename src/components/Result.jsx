@@ -3,7 +3,7 @@ import DefinitionCard from "./DefinitionCard";
 const Result = ({ result, err }) => {
   console.log(result);
   const wordInfo = result[0];
-
+  console.dir(wordInfo);
   if (!Object.keys(result).length) return <></>;
   if (err) {
     return (
@@ -17,7 +17,11 @@ const Result = ({ result, err }) => {
   return (
     <div className={styles.result}>
       <p>You searched for:</p>
-      <h1>{wordInfo.word}</h1>
+      <h1 className={styles.searchWord}>{wordInfo.word}</h1>
+      <h2> Origin </h2>
+      <p>{wordInfo.origin || "Origin Unknown!"}</p>
+      <h2>Definitions</h2>
+
       {wordInfo.meanings.map((meaning, indx1) => {
         return (
           <div key={meaning.toString() + indx1}>
