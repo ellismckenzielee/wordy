@@ -3,7 +3,7 @@
   margin: 0 auto;
   overflow-y: scroll;
   height: 85%;
-  padding: 10px 0;
+  padding-bottom: 10px;
 }
 
 .errorMessage {

@@ -1,8 +1,9 @@
 .form {
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
   min-width: 350px;
-  height: 15%;
+  height: 20vh;
+  min-height: 150px;
 }
 
 .inputForm {

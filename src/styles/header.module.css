@@ -3,11 +3,10 @@
   font-size: 30px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   padding-top: 20px;
   align-items: center;
-  height: 15%;
+  height: 20vh;
 }
 
 .title {
