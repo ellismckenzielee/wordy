@@ -8,8 +8,15 @@ const Result = ({ result }) => {
     <div className={styles.result}>
       <p>You searched for:</p>
       <h1>{wordInfo.word}</h1>
-      {wordInfo.meanings[0].definitions.map((definition, indx) => {
-        return <DefinitionCard key={indx} definition={definition} />;
+      {wordInfo.meanings.map((meaning) => {
+        return (
+          <div key={meaning.toString()}>
+            <h3>{meaning.partOfSpeech}</h3>
+            {meaning.definitions.map((definition, indx) => {
+              return <DefinitionCard key={definition.toString() + indx} definition={definition} />;
+            })}
+          </div>
+        );
       })}
     </div>
   );
